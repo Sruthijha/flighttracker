@@ -1,10 +1,15 @@
-import { signInWithPopup } from 'firebase/auth';
+import { signInWithRedirect, getRedirectResult } from 'firebase/auth';
+import { useEffect } from 'react';
 import { auth, googleProvider } from '../firebase';
 
 export default function LoginPage() {
+  useEffect(() => {
+    getRedirectResult(auth).catch(e => console.error(e));
+  }, []);
+
   const handleLogin = async () => {
     try {
-      await signInWithPopup(auth, googleProvider);
+      await signInWithRedirect(auth, googleProvider);
     } catch (e) {
       console.error(e);
       alert('Login failed. Please try again.');

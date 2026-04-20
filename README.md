@@ -94,3 +94,4 @@ npm run dev
 - Firebase Auth + Firestore
 - date-fns for time calculations
 - Deployed via GitHub Pages + GitHub Actions
+# force rebuild
